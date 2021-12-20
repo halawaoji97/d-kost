@@ -3,7 +3,7 @@ import HeroImage from '../../assets/images/hero.jpg';
 
 const Hero = () => {
   return (
-    <section className='hero container rounded bg-light'>
+    <section className='hero rounded bg-light py-5'>
       <div className='container d-flex align-items-center justify-content-start'>
         <div className='row'>
           <div className='col-lg my-5 ps-5 py-5'>
@@ -16,7 +16,7 @@ const Hero = () => {
               do not worry we have provided it for you
             </p>
             <div className='show-me my-5 py-5'>
-              <button type='button' class='btn btn-primary  rounded btn-lg'>
+              <button type='button' className='btn btn-primary  rounded btn-lg'>
                 Show Me Now
               </button>
             </div>

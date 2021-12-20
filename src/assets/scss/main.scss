@@ -1,30 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 // Custom scss
 $primary: #100e3b;
-$secondary: #eaeaea;
+$secondary: #5f6368;
 $warning: #f8c500;
 $info: #fa4400;
 $light: #d3ecff;
 
 $border-radius: 12px;
+$navbar-light-toggler-border-color: rgba($primary, 1);
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
 // NAVBAR
 .navbar {
-  height: 80px;
-  .navbar-nav {
-    .nav-item {
-      .nav-link {
-        color: $primary;
-        font-weight: 400;
-        font-size: 18px;
+  // height: 80px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  .container {
+    .navbar-toggler {
+      border: none;
+      :focus {
+        box-shadow: 0px 0px 2px 0.1rem;
+      }
+    }
+    .collapse {
+      background-color: $light;
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            color: $primary;
+            font-weight: 400;
+            font-size: 18px;
+          }
+        }
       }
     }
   }
 }
-
+// END NAVBAR
 // HERO
 .hero {
   height: 600px;
@@ -32,42 +71,134 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  @media (min-width: 768px) {
+    margin-top: 80px;
+  }
 
   h1 {
-    font-size: 40px;
+    font-size: 36px;
     color: $primary;
     font-weight: 700;
+
+    @media (min-width: 768px) {
+      font-size: 38px;
+    }
+    @media (min-width: 992px) {
+      font-size: 40px;
+    }
   }
 
   p {
-    font-size: 20px;
-    color: rgba(16, 14, 59, 75%);
+    font-size: 18px;
+    color: $secondary;
     margin: 10px 0 30px 0;
-    font-weight: 300;
+    font-weight: 400;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
   }
 }
 
 // FEATURES
 .features {
-  .card {
-    .card-body {
-      .rating {
-        width: 120px;
-        position: absolute;
-        border-bottom-left-radius: 24px;
-        border-top-right-radius: 12px;
-        top: 0;
-        right: 0;
-        background-color: $primary;
+  h2 {
+    font-size: 32px;
+    color: $primary;
+    font-weight: 700;
 
-        p {
-          color: #f8c500;
-          text-align: center;
-          padding: 6px;
-          font-size: 15px;
+    @media (min-width: 768px) {
+      font-size: 34px;
+    }
+    @media (min-width: 992px) {
+      font-size: 36px;
+    }
+  }
+  .popular {
+    h3 {
+      font-size: 28px;
+      color: $primary;
+      font-weight: 600;
+      @media (min-width: 768px) {
+        font-size: 30px;
+      }
+    }
+    p {
+      font-size: 16px;
+      color: $secondary;
+      font-weight: 400;
+    }
+    .card {
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      border: none;
+
+      .card-body {
+        .card-title {
+          a {
+            font-size: 22px;
+            color: $primary;
+            text-decoration: none;
+            font-weight: 600;
+          }
+        }
+        .card-text {
+          font-size: 16px;
+          color: $secondary;
+          font-weight: 400;
+        }
+        .rating {
+          width: 120px;
+          position: absolute;
+          border-bottom-left-radius: 24px;
+          border-top-right-radius: 12px;
+          top: 0;
+          right: 0;
+          background-color: $primary;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            color: #f8c500;
+            text-align: center;
+            padding: 6px;
+          }
+          .rating-value {
+            font-size: 15px;
+          }
         }
       }
     }
+  }
+}
+
+footer {
+  .footer-brand {
+    h1 {
+      a {
+        font-size: 26px;
+        text-decoration: none;
+        color: $primary;
+      }
+    }
+  }
+  .footer-list {
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          color: $secondary;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .copyright {
+    color: $primary;
+    font-weight: 400;
   }
 }
 

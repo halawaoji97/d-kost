@@ -2,41 +2,41 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav class='navbar navbar-expand-lg bg-light '>
-      <div class='container'>
-        <a class='navbar-brand' href='#'>
+    <nav className='navbar fixed-top navbar-expand-lg bg-light'>
+      <div className='container'>
+        <a className='navbar-brand' href='#'>
           Asrog
         </a>
         <button
-          class='navbar-toggler'
+          className='navbar-toggler'
           type='button'
           data-bs-toggle='collapse'
-          data-bs-target='#navbarText'
-          aria-controls='navbarText'
+          data-bs-target='#navbarToggler'
+          aria-controls='navbarToggler'
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
-          <span class='navbar-toggler-icon'></span>
+          <span class='material-icons md-48'>menu</span>
         </button>
-        <div class='collapse navbar-collapse' id='navbarText'>
-          <ul class='navbar-nav ms-auto mb-2 mb-lg-0'>
-            <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' href='#'>
+        <div className='collapse navbar-collapse py-3' id='navbarToggler'>
+          <ul className='navbar-nav ms-auto mb-3 mb-lg-0'>
+            <li className='nav-item'>
+              <a className='nav-link active' aria-current='page' href='#'>
                 Home
               </a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li className='nav-item'>
+              <a className='nav-link' href='#'>
                 Features
               </a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li className='nav-item'>
+              <a className='nav-link' href='#'>
                 About
               </a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='#'>
+            <li className='nav-item'>
+              <a className='nav-link' href='#'>
                 Login
               </a>
             </li>
