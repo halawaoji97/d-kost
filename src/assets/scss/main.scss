@@ -102,6 +102,7 @@ body {
 
 // FEATURES
 .features {
+  min-height: 300px;
   h2 {
     font-size: 32px;
     color: $primary;
@@ -114,61 +115,67 @@ body {
       font-size: 36px;
     }
   }
-  .popular {
-    h3 {
-      font-size: 28px;
-      color: $primary;
-      font-weight: 600;
-      @media (min-width: 768px) {
-        font-size: 30px;
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+      rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+      rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border: none;
+  }
+}
+// ITEMS
+.items {
+  h3 {
+    font-size: 28px;
+    color: $primary;
+    font-weight: 600;
+    @media (min-width: 768px) {
+      font-size: 30px;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: $secondary;
+    font-weight: 400;
+  }
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+      rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+      rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border: none;
+
+    .card-body {
+      .card-title {
+        a {
+          font-size: 22px;
+          color: $primary;
+          text-decoration: none;
+          font-weight: 600;
+        }
       }
-    }
-    p {
-      font-size: 16px;
-      color: $secondary;
-      font-weight: 400;
-    }
-    .card {
-      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
-        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
-        rgba(0, 0, 0, 0.07) 0px 32px 64px;
-      border: none;
+      .card-text {
+        font-size: 16px;
+        color: $secondary;
+        font-weight: 400;
+      }
+      .rating {
+        width: 120px;
+        position: absolute;
+        border-bottom-left-radius: 24px;
+        border-top-right-radius: 12px;
+        top: 0;
+        right: 0;
+        background-color: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      .card-body {
-        .card-title {
-          a {
-            font-size: 22px;
-            color: $primary;
-            text-decoration: none;
-            font-weight: 600;
-          }
+        span {
+          color: #f8c500;
+          text-align: center;
+          padding: 6px;
         }
-        .card-text {
-          font-size: 16px;
-          color: $secondary;
-          font-weight: 400;
-        }
-        .rating {
-          width: 120px;
-          position: absolute;
-          border-bottom-left-radius: 24px;
-          border-top-right-radius: 12px;
-          top: 0;
-          right: 0;
-          background-color: $primary;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          span {
-            color: #f8c500;
-            text-align: center;
-            padding: 6px;
-          }
-          .rating-value {
-            font-size: 15px;
-          }
+        .rating-value {
+          font-size: 15px;
         }
       }
     }
@@ -176,6 +183,7 @@ body {
 }
 
 footer {
+  border-top: 1px solid $secondary;
   .footer-brand {
     h1 {
       a {
@@ -186,13 +194,12 @@ footer {
     }
   }
   .footer-list {
-    ul {
-      li {
-        a {
-          text-decoration: none;
-          color: $secondary;
-          font-weight: 400;
-        }
+    list-style: none;
+    li {
+      a {
+        text-decoration: none;
+        color: $secondary;
+        font-weight: 400;
       }
     }
   }

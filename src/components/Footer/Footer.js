@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='py-5'>
       <div className='container'>
         <div className='row'>
           <div className='col footer-brand'>
@@ -10,8 +10,8 @@ const Footer = () => {
               <a href='#'>AsRog</a>
             </h1>
           </div>
-          <div className='col-4 d-flex justify-content-between footer-list'>
-            <ul>
+          <div className='col-sm-10 col-md-4'>
+            <ul className='d-flex  footer-list justify-content-between'>
               <li>
                 <a href='#'>Developer</a>
               </li>

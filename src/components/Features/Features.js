@@ -1,18 +1,15 @@
 import React from 'react';
-import Item from './Item/Item';
+import FeatureItem from './FeatureItem.js/FeatureItem';
 
 const Features = () => {
   return (
     <section className='features my-5 py-5'>
       <h2 className='text-center'>Explore your stay</h2>
-      <div className='container popular my-3'>
-        <h3>Most Popular</h3>
-        <p>one of kost that is very much in demand by many young people.</p>
-        <div className='row'>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+      <div className='container popular my-5'>
+        <div className='row d-flex justify-content-around '>
+          <FeatureItem />
+          <FeatureItem />
+          <FeatureItem />
         </div>
       </div>
     </section>
