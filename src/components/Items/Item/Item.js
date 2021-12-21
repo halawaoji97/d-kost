@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
   return (
@@ -7,9 +8,9 @@ const Item = ({ item }) => {
         <img src={item.imageUrl} className='card-img-top' alt={item.imageUrl} />
         <div className='card-body'>
           <h5 className='card-title'>
-            <a href='' className='stretched-link'>
+            <Link to={`/detail/${item._id}`} className='stretched-link'>
               {`${item.location}, ${item.city}`}
-            </a>
+            </Link>
           </h5>
           <p className='card-text'>{`${item.price} / ${item.unit}`} </p>
           <div className='rating'>

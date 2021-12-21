@@ -1,0 +1,42 @@
+{
+  "_id": "asd1293uasdads1",
+  "location": "Pluit",
+  "imageUrls": [
+    {
+      "_id": "asd1293uasdads1",
+      "url": "/images/pict1.jpg",
+      "name": "Bad room"
+    },
+    {
+      "_id": "asd1293uasdads1",
+      "url": "/images/pict2.jpg",
+      "name": "Kitchen"
+    },
+    {
+      "_id": "asd1293uasdads1",
+      "url": "/images/pict3.jpg",
+      "name": "Bath room"
+    }
+  ],
+  "city": "Jakarta Utara",
+  "price": "800000",
+  "unit": "month",
+  "description": "<p>Minimal techno is a minimalist subgenre of techno music. It ischaracterized by a stripped-down aesthetic that exploits the use ofrepetition and understated development. Minimal techno is thought tohave been originally developed in the early 1990s by Detroit-basedproducers Robert Hood and Daniel Bell.</p>",
+  "facilities": [
+    {
+      "_id": "asd1293uasdads1",
+      "name": "Free Wifi",
+      "icon": "wifi"
+    },
+    {
+      "_id": "asd1293uasdads1",
+      "name": "Table",
+      "icon": "table_restaurant"
+    },
+    {
+      "_id": "asd1293uasdads1",
+      "name": "Chair",
+      "icon": "chair_alt"
+    }
+  ]
+}

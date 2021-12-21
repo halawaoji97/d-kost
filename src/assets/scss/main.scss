@@ -13,29 +13,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
 // NAVBAR
 .navbar {
   // height: 80px;
@@ -206,6 +183,46 @@ footer {
   .copyright {
     color: $primary;
     font-weight: 400;
+  }
+}
+
+// DETAIL PAGE
+.detail-page {
+  .page-detail-title {
+    @media (min-width: 768px) {
+      margin-top: 120px;
+    }
+    h1 {
+      font-size: 32px;
+      color: $primary;
+      font-weight: 600;
+    }
+    span {
+      font-size: 20px;
+      color: $primary;
+      font-weight: 400;
+    }
+  }
+
+  .featured-image {
+    .feature-item {
+      .figure {
+        .figure-caption {
+          font-size: 18px;
+          color: $secondary;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .page-detail-description {
+    color: $primary;
+    p {
+      line-height: 2;
+      font-weight: 400;
+      font-size: 16px;
+    }
   }
 }
 
