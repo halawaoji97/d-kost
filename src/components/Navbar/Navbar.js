@@ -16,10 +16,10 @@ const Navbar = () => {
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
-          <span class='material-icons md-48'>menu</span>
+          <span className='material-icons md-48'>menu</span>
         </button>
         <div className='collapse navbar-collapse py-3' id='navbarToggler'>
-          <ul className='navbar-nav ms-auto mb-3 mb-lg-0'>
+          <ul className='navbar-nav ms-auto mb-3 '>
             <li className='nav-item'>
               <a className='nav-link active' aria-current='page' href='#'>
                 Home

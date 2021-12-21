@@ -1,21 +1,20 @@
 import React from 'react';
-import imgFeatures from '../../../assets/images/pict1.jpg';
 
-const Item = () => {
+const Item = ({ item }) => {
   return (
     <div className='col-lg-3 col-sm-10 col-md-6 my-3'>
       <div className='card'>
-        <img src={imgFeatures} className='card-img-top' alt='...' />
+        <img src={item.imageUrl} className='card-img-top' alt={item.imageUrl} />
         <div className='card-body'>
           <h5 className='card-title'>
             <a href='' className='stretched-link'>
-              Kelapa Gading, Jakarta Utara
+              {`${item.location}, ${item.city}`}
             </a>
           </h5>
-          <p className='card-text'>700.000 / month</p>
+          <p className='card-text'>{`${item.price} / ${item.unit}`} </p>
           <div className='rating'>
             <span className='material-icons'>grade</span>
-            <span className='rating-value'>4.5</span>
+            <span className='rating-value'>{item.rate}</span>
           </div>
         </div>
       </div>
