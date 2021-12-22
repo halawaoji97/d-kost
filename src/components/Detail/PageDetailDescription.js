@@ -27,12 +27,24 @@ const PageDetailDescription = ({ data }) => {
               );
             })}
           </div>
+          <div className='room-info  d-flex justify-content-between mt-5'>
+            <button type='button' class='btn text-light btn-info'>
+              Total room <span class='badge bg-dark'>{data.totalRooms}</span>
+            </button>
+            <button type='button' class='btn text-light btn-info'>
+              Available room{' '}
+              <span class='badge bg-dark'>{data.availableRooms}</span>
+            </button>
+            <button type='button' class='btn text-light btn-info'>
+              Price <span class='badge bg-dark'>Rp. {data.price}</span>
+            </button>
+          </div>
         </div>
       </div>
-      <div className='justify-content-center'>
+      <div className='row justify-content-center text-center'>
         <div className='col'>
           <div className='btn-booking my-5 py-5 text-right'>
-            <button type='button' className='btn btn-primary  rounded btn-lg'>
+            <button type='button' className='btn btn-primary rounded btn-lg'>
               Book Now
             </button>
           </div>

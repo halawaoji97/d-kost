@@ -1,6 +1,8 @@
 {
   "_id": "asd1293uasdads1",
   "location": "Pluit",
+  "totalRooms": 120,
+  "availableRooms": 60,
   "imageUrls": [
     {
       "_id": "asd1293uasdads1",
