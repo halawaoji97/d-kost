@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import InputText from '../Input/InputText';
-import detailPage from '../../json/detailPage.json';
 
-const BookingInformation = () => {
-  const [inputValue, setInputValue] = useState('');
-
-  function handleInputChange(event) {
-    setInputValue(event.target.value);
-  }
+const BookingInformation = (props) => {
+  const { data, detailPage, checkout } = props;
+  console.log(data);
 
   return (
     <div className='container booking-page mt-5'>
@@ -38,29 +34,31 @@ const BookingInformation = () => {
           </div>
         </div>
         <div className='col-sm-10 mt-5 col-md-5'>
-          <h3 className='mb-4 text-primary'>Please fill the fields below</h3>
           <label htmlFor='name'>Full Name</label>
           <InputText
-            name='name'
-            value={inputValue}
+            id='fullName'
+            name='fullName'
+            value={data.fullName}
             type='text'
-            onChange={handleInputChange}
+            onChange={props.onChange}
           />
 
           <label htmlFor='email'>Email Address</label>
           <InputText
+            id='email'
             name='email'
-            value={inputValue}
+            value={data.email}
             type='email'
-            onChange={handleInputChange}
+            onChange={props.onChange}
           />
 
           <label htmlFor='phone'>Phone Number</label>
           <InputText
+            id='phone'
             name='phone'
-            value={inputValue}
+            value={data.phone}
             type='tel'
-            onChange={handleInputChange}
+            onChange={props.onChange}
           />
         </div>
       </div>

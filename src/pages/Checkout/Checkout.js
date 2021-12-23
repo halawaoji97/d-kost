@@ -14,8 +14,7 @@ import detailPage from '../../json/detailPage.json';
 export default class Checkout extends Component {
   state = {
     data: {
-      firstName: '',
-      lastName: '',
+      fullName: '',
       email: '',
       phone: '',
       proofPayment: '',
@@ -53,7 +52,7 @@ export default class Checkout extends Component {
           <BookingInformation
             data={data}
             checkout={checkout}
-            ItemDetails={detailPage}
+            detailPage={detailPage}
             onChange={this.onChange}
           />
         ),
@@ -65,7 +64,7 @@ export default class Checkout extends Component {
         content: (
           <Payment
             data={data}
-            ItemDetails={detailPage}
+            detailPage={detailPage}
             checkout={checkout}
             onChange={this.onChange}
           />
@@ -82,7 +81,7 @@ export default class Checkout extends Component {
     return (
       <>
         {/* <Header isCentered /> */}
-        <Stepper steps={steps} initialStep='payment'>
+        <Stepper steps={steps} initialStep='bookingInformation'>
           {(prevStep, nextStep, CurrentStep, steps) => (
             <>
               <Numbering
@@ -97,25 +96,27 @@ export default class Checkout extends Component {
 
               {CurrentStep === 'bookingInformation' && (
                 <Controller>
-                  {data.firstName !== '' &&
-                    data.lastName !== '' &&
+                  <div className='col-sm-6 col-md-3'>
+                    <button
+                      className='btn btn-lg btn-secondary'
+                      href={`/properties/${checkout._id}`}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  {data.fullName !== '' &&
                     data.email !== '' &&
                     data.phone !== '' && (
-                      <button
-                        className='btn mb-3'
-                        type='button'
-                        onClick={nextStep}
-                      >
-                        Continue to Book
-                      </button>
+                      <div className='col-sm-6 col-md-3 order-md-last order-sm-first'>
+                        <button
+                          className='btn btn-lg btn-primary mb-3'
+                          type='button'
+                          onClick={nextStep}
+                        >
+                          Continue to Book
+                        </button>
+                      </div>
                     )}
-                  <button
-                    className='btn'
-                    type='link'
-                    href={`/properties/${checkout._id}`}
-                  >
-                    Cancel
-                  </button>
                 </Controller>
               )}
 
