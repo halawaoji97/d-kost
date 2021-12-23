@@ -31,7 +31,7 @@ const InputText = (props) => {
   };
   return (
     <div className='input-text mb-3'>
-      <div className='input-group'>
+      <div className='input-group rounded'>
         <input
           name={name}
           type={type}
@@ -40,6 +40,7 @@ const InputText = (props) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          hasError={errorResponse}
         />
       </div>
     </div>

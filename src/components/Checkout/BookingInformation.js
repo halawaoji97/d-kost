@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import InputDate from '../../components/Input/InputDate';
-import InputText from '../../components/Input/InputText';
+import InputText from '../Input/InputText';
 import detailPage from '../../json/detailPage.json';
 
-const BookingPage = (props) => {
+const BookingInformation = () => {
   const [inputValue, setInputValue] = useState('');
 
   function handleInputChange(event) {
@@ -66,25 +65,7 @@ const BookingPage = (props) => {
         </div>
       </div>
     </div>
-    // <div>
-    //   <h1>Booking</h1>
-    //   <InputDate />
-    //   <label htmlFor='phone'>Phone Number</label>
-    //   <InputText
-    //     name='name'
-    //     value={inputValue}
-    //     type='text'
-    //     onChange={handleInputChange}
-    //   />
-    //   <label htmlFor='phone'>Phone Number</label>
-    //   <InputText
-    //     name='phone'
-    //     value={inputValue}
-    //     type='tel'
-    //     onChange={handleInputChange}
-    //   />
-    // </div>
   );
 };
 
-export default BookingPage;
+export default BookingInformation;

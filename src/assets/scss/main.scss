@@ -227,29 +227,45 @@ footer {
 }
 
 .booking-page {
+  label {
+    margin-bottom: 5px;
+  }
   .input-text {
     margin-bottom: 20px;
     position: relative;
 
     .input-group {
-      background-color: $white;
+      background-color: $light;
 
       .form-control {
         border: 0;
-        border-radius: 4px;
+        border-radius: 12px;
         outline: 0;
         box-shadow: none;
-        background-color: $light;
+        background-color: #eaeaea;
         padding: 0.575rem 14px;
         width: 100%;
         height: 45px;
 
+        :focus {
+          border: 1px solid $light;
+        }
+
         &::placeholder {
-          color: $gray-200;
+          color: $secondary;
         }
       }
     }
   }
+}
+
+// STEPPER
+ol.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 // import bootstrap
