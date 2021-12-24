@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Stepper, {
   Numbering,
   Meta,
@@ -96,54 +98,57 @@ export default class Checkout extends Component {
 
               {CurrentStep === 'bookingInformation' && (
                 <Controller>
-                  <div className='col-sm-6 col-md-3'>
-                    <button
-                      className='btn btn-lg btn-secondary'
-                      href={`/properties/${checkout._id}`}
-                    >
-                      Cancel
-                    </button>
-                  </div>
+                  <Link
+                    className='btn rounded text-light btn-lg btn-secondary'
+                    to={`/detail/${checkout._id}`}
+                  >
+                    Cancel
+                  </Link>
                   {data.fullName !== '' &&
                     data.email !== '' &&
                     data.phone !== '' && (
-                      <div className='col-sm-6 col-md-3 order-md-last order-sm-first'>
-                        <button
-                          className='btn btn-lg btn-primary mb-3'
-                          type='button'
-                          onClick={nextStep}
-                        >
-                          Continue to Book
-                        </button>
-                      </div>
+                      <button
+                        className='btn text-light rounded btn-lg btn-primary'
+                        type='button'
+                        onClick={nextStep}
+                      >
+                        Continue
+                      </button>
                     )}
                 </Controller>
               )}
 
               {CurrentStep === 'payment' && (
                 <Controller>
+                  <button
+                    className='btn rounded text-light btn-lg btn-secondary'
+                    type='button'
+                    onClick={prevStep}
+                  >
+                    Back
+                  </button>
                   {data.proofPayment !== '' &&
                     data.bankName !== '' &&
                     data.bankHolder !== '' && (
                       <button
-                        className='btn mb-3'
+                        className='btn text-light rounded btn-lg btn-primary'
                         type='button'
                         onClick={nextStep}
                       >
                         Continue to Book
                       </button>
                     )}
-                  <button className='btn' type='button' onClick={prevStep}>
-                    Cancel
-                  </button>
                 </Controller>
               )}
 
               {CurrentStep === 'completed' && (
                 <Controller>
-                  <button className='btn' isBlock isPrimary hasShadow href=''>
+                  <Link
+                    to='/'
+                    className='btn text-light rounded btn-lg btn-primary'
+                  >
                     Back to Home
-                  </button>
+                  </Link>
                 </Controller>
               )}
             </>

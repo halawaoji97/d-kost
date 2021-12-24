@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FeaturedImage from '../../components/Detail/FeaturedImage';
 import PageDetailDescription from '../../components/Detail/PageDetailDescription';
 import PageDetailTitle from '../../components/Detail/PageDetailTitle';
@@ -7,6 +7,11 @@ import Navbar from '../../components/Navbar/Navbar';
 import detailPage from '../../json/detailPage.json';
 
 const DetailPage = () => {
+  useEffect(() => {
+    document.title = 'Detail';
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className='detail-page'>
       <Navbar />

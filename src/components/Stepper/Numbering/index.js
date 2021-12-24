@@ -7,7 +7,7 @@ import propTypes from 'prop-types';
 export default function Numbering({ style, className, data, current }) {
   const KeysOfData = Object.keys(data);
   return (
-    <ol className={['stepper', className].join(' ')} style={style}>
+    <ol className={['stepper mt-5', className].join(' ')} style={style}>
       {KeysOfData.map((list, index) => {
         let isActive = list === current ? 'active' : '';
         if (index + 1 === KeysOfData.length) {

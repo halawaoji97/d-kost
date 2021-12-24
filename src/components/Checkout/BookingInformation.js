@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InputText from '../Input/InputText';
 
 const BookingInformation = (props) => {
@@ -6,7 +6,7 @@ const BookingInformation = (props) => {
   console.log(data);
 
   return (
-    <div className='container booking-page mt-5'>
+    <div className='container booking-information mt-5'>
       <div className='row align-items-center justify-content-around'>
         <div className='col-sm-10 col-md-5 mt-5 border-right'>
           <div className='card'>

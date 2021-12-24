@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Hero = () => {
+const Hero = (props) => {
+  const showItemsPopular = () => {
+    window.scrollTo({
+      top: props.refMostItemsPopular.current.offsetTop - 30,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <section className='hero rounded bg-light py-5'>
       <div className='container d-flex align-items-center justify-content-start'>
@@ -15,7 +22,11 @@ const Hero = () => {
               do not worry we have provided it for you
             </p>
             <div className='show-me my-5 py-5'>
-              <button type='button' className='btn btn-primary  rounded btn-lg'>
+              <button
+                type='button'
+                className='btn btn-primary  rounded btn-lg'
+                onClick={showItemsPopular}
+              >
                 Show Me Now
               </button>
             </div>

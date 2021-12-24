@@ -1,9 +1,10 @@
 import React from 'react';
 import Item from './Item/Item';
 
-const Items = ({ data }) => {
+const Items = (props) => {
+  const { data, refMostItemsPopular } = props;
   return (
-    <section className='items my-5 py-5'>
+    <section className='items my-5 py-5' ref={refMostItemsPopular}>
       <div className='container my-3'>
         <h3>Most Popular</h3>
         <p>one of kost that is very much in demand by many young people.</p>

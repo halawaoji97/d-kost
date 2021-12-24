@@ -13,6 +13,13 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+main {
+  p {
+    color: $secondary;
+    font-weight: 400;
+  }
+}
+
 // NAVBAR
 .navbar {
   // height: 80px;
@@ -226,40 +233,38 @@ footer {
   }
 }
 
-.booking-page {
-  label {
-    margin-bottom: 5px;
-  }
-  .input-text {
-    margin-bottom: 20px;
-    position: relative;
+label {
+  margin-bottom: 5px;
+}
+.input-text {
+  margin-bottom: 20px;
+  position: relative;
 
-    .input-group {
-      background-color: $light;
+  .input-group {
+    background-color: $light;
 
-      .form-control {
-        border: 0;
-        border-radius: 12px;
-        outline: 0;
-        box-shadow: none;
-        background-color: #eaeaea;
-        padding: 0.575rem 14px;
-        width: 100%;
-        height: 45px;
+    .form-control {
+      border: 0;
+      border-radius: 12px;
+      outline: 0;
+      box-shadow: none;
+      background-color: #eaeaea;
+      padding: 0.575rem 14px;
+      width: 100%;
+      height: 45px;
 
-        :focus {
-          border: 1px solid $light;
-        }
+      :focus {
+        border: 1px solid $light;
+      }
 
-        &::placeholder {
-          color: $secondary;
-        }
+      &::placeholder {
+        color: $secondary;
       }
     }
   }
 }
-$stepperMainColor: #eaeaea;
-$size: 60px;
+$stepperMainColor: $light;
+$size: 48px;
 // STEPPER
 ol.stepper {
   display: flex;
@@ -278,6 +283,8 @@ ol.stepper {
     height: $size;
     border-radius: $size;
     color: $light;
+    font-size: 20px;
+    font-weight: 400;
 
     &:after {
       position: absolute;
@@ -291,7 +298,7 @@ ol.stepper {
       background-repeat: no-repeat;
       background-color: #099b5e;
       transform: scale(1);
-      transition: 0.35s transform ease-in-out;
+      transition: 1s transform ease-in-out;
     }
     &:not(:last-child) {
       margin-right: 60px;
@@ -315,7 +322,7 @@ ol.stepper {
         transform: scale(1.2);
       }
       background-color: $stepperMainColor;
-      color: $secondary;
+      color: $primary;
 
       & ~ li {
         color: $secondary;
@@ -326,6 +333,33 @@ ol.stepper {
       }
     }
   }
+}
+
+// CHECKOUT
+
+.meta {
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: $primary;
+  }
+  p {
+    font-size: 18px;
+    color: $secondary;
+    font-weight: 400;
+  }
+}
+
+.controller {
+  .button-step {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.btn {
+  width: 180px;
+  height: 46px;
 }
 
 // import bootstrap

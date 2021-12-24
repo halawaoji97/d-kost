@@ -28,16 +28,25 @@ const PageDetailDescription = ({ data }) => {
             })}
           </div>
           <div className='room-info  d-flex justify-content-between mt-5'>
-            <button type='button' class='btn text-light btn-info'>
-              Total room <span class='badge bg-dark'>{data.totalRooms}</span>
-            </button>
-            <button type='button' class='btn text-light btn-info'>
-              Available room{' '}
-              <span class='badge bg-dark'>{data.availableRooms}</span>
-            </button>
-            <button type='button' class='btn text-light btn-info'>
-              Price <span class='badge bg-dark'>Rp. {data.price}</span>
-            </button>
+            <div className='row justify-content-between'>
+              <div className='col'>
+                <button type='button' class='btn text-light btn-info'>
+                  Total room{' '}
+                  <span class='badge bg-dark'>{data.totalRooms}</span>
+                </button>
+              </div>
+              <div className='col'>
+                <button type='button' class='btn text-light btn-info'>
+                  Available room{' '}
+                  <span class='badge bg-dark'>{data.availableRooms}</span>
+                </button>
+              </div>
+              <div className='col mt-3'>
+                <button type='button' class='btn text-light btn-info'>
+                  Price <span class='badge bg-dark'>Rp. {data.price}</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
