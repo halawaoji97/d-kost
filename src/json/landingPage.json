@@ -2,7 +2,7 @@
   "features": {
     "area": 4,
     "rooms": 680,
-    "availaleRoom": 305
+    "availableRoom": 305
   },
   "mostPopular": [
     {
@@ -10,6 +10,7 @@
       "location": "Sunter",
       "city": "Jakarta Utara",
       "imageUrl": "/images/pict1.jpg",
+      "full_address": "Jl. anggrek",
       "rate": 4.5,
       "price": "800000",
       "unit": "month"
@@ -19,6 +20,7 @@
       "location": "Cipinang",
       "city": "Jakarta Timur",
       "imageUrl": "/images/pict2.jpg",
+      "full_address": "Jl. anggrek",
       "rate": 4.5,
       "price": "800000",
       "unit": "month"
@@ -28,6 +30,7 @@
       "location": "Menteng",
       "city": "Jakarta Pusat",
       "imageUrl": "/images/pict3.jpg",
+      "full_address": "Jl. anggrek",
       "rate": 4.5,
       "price": "800000",
       "unit": "month"
@@ -37,6 +40,7 @@
       "location": "Grogol",
       "city": "Jakarta Barat",
       "imageUrl": "/images/pict4.jpg",
+      "full_address": "Jl. anggrek",
       "rate": 4.5,
       "price": "800000",
       "unit": "month"
@@ -52,6 +56,7 @@
           "location": "Kelapa Gading",
           "city": "Jakarta Utara",
           "imageUrl": "/images/img-most-picked-1.jpg",
+          "full_address": "Jl. anggrek",
           "rate": 4.5,
           "price": "800000",
           "unit": "month"
@@ -61,6 +66,7 @@
           "location": "Kelapa Gading",
           "city": "Jakarta Utara",
           "imageUrl": "/images/img-most-picked-1.jpg",
+          "full_address": "Jl. anggrek",
           "rate": 4.5,
           "price": "800000",
           "unit": "month"
@@ -70,6 +76,7 @@
           "location": "Kelapa Gading",
           "city": "Jakarta Utara",
           "imageUrl": "/images/img-most-picked-1.jpg",
+          "full_address": "Jl. anggrek",
           "rate": 4.5,
           "price": "800000",
           "unit": "month"
@@ -79,6 +86,7 @@
           "location": "Kelapa Gading",
           "city": "Jakarta Utara",
           "imageUrl": "/images/img-most-picked-1.jpg",
+          "full_address": "Jl. anggrek",
           "rate": 4.5,
           "price": "800000",
           "unit": "month"
@@ -89,6 +97,7 @@
   "testimonial": {
     "_id": "asd1293uasdads1",
     "imageUrl": "/images/testimonial.jpg",
+    "full_address": "Jl. anggrek",
     "name": "Happy Family",
     "rate": 1.75,
     "content": "What a great trip with my family and I should try again next time soon ...",

@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+
 import Stepper, {
   Numbering,
   Meta,
   MainContent,
   Controller,
-} from '../../components/Stepper';
-import BookingInformation from '../../components/Checkout/BookingInformation';
-import Payment from '../../components/Checkout/Payment';
-import Completed from '../../components/Checkout/Completed';
+} from '../components/Stepper';
+import BookingInformation from '../components/Checkout/BookingInformation';
+import Payment from '../components/Checkout/Payment';
+import Completed from '../components/Checkout/Completed';
+import detailPage from '../json/detailPage.json';
 
-import detailPage from '../../json/detailPage.json';
-
-const Checkout = () => {
+const CheckoutExample = () => {
   const [data, setData] = useState({
     fullName: '',
     email: '',
@@ -143,8 +142,4 @@ const Checkout = () => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  checkout: state.checkout,
-});
-
-export default connect(mapStateToProps)(Checkout);
+export default CheckoutExample;
