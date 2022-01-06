@@ -12,8 +12,10 @@ import Payment from '../../components/Checkout/Payment';
 import Completed from '../../components/Checkout/Completed';
 
 import detailPage from '../../json/detailPage.json';
+import { checkoutBooking } from '../../store/actions/checkout';
 
-const Checkout = () => {
+const Checkout = ({ dataBooking }) => {
+  console.log(dataBooking);
   const [data, setData] = useState({
     fullName: '',
     email: '',

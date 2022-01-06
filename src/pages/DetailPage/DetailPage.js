@@ -11,38 +11,47 @@ import { checkoutBooking } from '../../store/actions/checkout';
 import { getDetailItems, getItems } from '../../store/actions/items';
 import { fetchData, fetchDetailData } from '../../api';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const DetailPage = () => {
   const [currentId, setCurrentId] = useState(null);
-  const [detailItem, setdetailItem] = useState({});
+  const [detailItem, setdetailItem] = useState([]);
   const dispatch = useDispatch();
   const { id } = useParams();
-  const items = useSelector((state) => state.items);
-  console.log(items);
-  console.log(id);
+  // const items = useSelector((state) => state.items);
+  // console.log(items);
+  // console.log(id);
 
-  const detailsPage = () => {
-    fetch(
-      `https://staycation-bwa-mern.herokuapp.com/api/v1/member/detail-page/${id}`
-    )
-      .then((res) => res.json())
-      .then((data) => setdetailItem(data))
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   useEffect(() => {
     document.title = 'Detail';
     window.scrollTo(0, 0);
+    const detailsPage = async () => {
+      try {
+        const response = await axios.get(
+          `https://staycation-bwa-mern.herokuapp.com/api/v1/member/detail-page/${id}`
+        );
+        console.log(response.data);
+        setdetailItem(response.data);
+        setCurrentId(response.data._id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     detailsPage();
   }, []);
 
+  // useEffect(() => {
+  //   dispatch(checkoutBooking());
+  // }, []);
+  console.log(detailItem);
+  if (!detailItem) return 'no data';
+  // console.log(currentId);
   return (
     <section className='detail-page'>
       <Navbar />
       <PageDetailTitle data={detailItem} />
       {/* <FeaturedImage data={detailItem} /> */}
-      <PageDetailDescription data={detailItem} />
+      <PageDetailDescription data={detailItem} currentId={currentId} />
       <Footer />
     </section>
   );

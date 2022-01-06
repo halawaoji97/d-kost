@@ -12,17 +12,29 @@ import { getItems } from '../../store/actions/items';
 const Home = () => {
   const refMostItemsPopular = useRef();
   const [currentId, setCurrentId] = useState(null);
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
+  const [dataLandingPage, setdataLandingPage] = useState([]);
+  // const dispatch = useDispatch();
+  // const items = useSelector((state) => state.items);
 
-  console.log(items.mostPicked);
   useEffect(() => {
     document.title = 'Home';
     window.scrollTo(0, 0);
-    if (!items.length === 0) return null;
-    dispatch(getItems());
+    const fetchLandingPage = async () => {
+      try {
+        const response = await axios.get(
+          'https://staycation-bwa-mern.herokuapp.com/api/v1/member/landing-page'
+        );
+        console.log(response.data);
+
+        setdataLandingPage(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchLandingPage();
   }, []);
 
+  if (!dataLandingPage) return 'no post';
   return (
     <div>
       <Navbar />
@@ -32,7 +44,7 @@ const Home = () => {
         refMostItemsPopular={refMostItemsPopular}
         currentId={currentId}
         setCurrentId={setCurrentId}
-        data={items.mostPicked}
+        data={dataLandingPage.mostPicked}
       />
       <Footer />
     </div>

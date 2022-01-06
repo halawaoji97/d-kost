@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import parse from 'html-react-parser';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -11,22 +11,23 @@ const PageDetailDescription = ({ data }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(data);
-  const des = useSelector((state) => state.data);
-  if (des === 0) return null;
-  console.log(des);
+  const [dataBooking, setDataBooking] = useState({});
+  console.log(data.featureId);
+  // const des = useSelector((state) => state.data);
+  // if (des === 0) return null;
+  // console.log(des);
 
-  // const { items, setItems } = useState({
-  //   data: {
-  //     id: data.id,
-  //   },
-  // });
-
-  const startBooking = (e) => {
+  const startBooking = (e, data) => {
     e.preventDefault();
     dispatch(checkoutBooking());
+    setDataBooking(data);
     navigate('/checkout');
   };
+
+  console.log(dataBooking);
+  console.log(data);
+
+  if (!data.featureId) return 'no data';
 
   return (
     <section className='container page-detail-description my-5'>
@@ -85,7 +86,9 @@ const PageDetailDescription = ({ data }) => {
               type='button'
               onClick={startBooking}
               className='btn btn-primary rounded btn-lg'
-              // checkout={items}
+              // checkout={da}
+              setDataBooking={data}
+              dataBooking={dataBooking}
             >
               Book Now
             </button>
