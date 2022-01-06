@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Stepper, {
   Numbering,
@@ -10,11 +10,13 @@ import Stepper, {
 import BookingInformation from '../../components/Checkout/BookingInformation';
 import Payment from '../../components/Checkout/Payment';
 import Completed from '../../components/Checkout/Completed';
-
+import axios from 'axios';
 import detailPage from '../../json/detailPage.json';
 import { checkoutBooking } from '../../store/actions/checkout';
 
-const Checkout = ({ dataBooking }) => {
+const Checkout = () => {
+  const { state } = useLocation();
+  const { dataBooking } = state;
   console.log(dataBooking);
   const [data, setData] = useState({
     fullName: '',
@@ -23,8 +25,35 @@ const Checkout = ({ dataBooking }) => {
     proofPayment: '',
     bankName: '',
     bankHolder: '',
+    title: dataBooking.title,
+    price: dataBooking.price,
+    city: dataBooking.city,
+    imageId: dataBooking.imageId[0],
+    unit: dataBooking.unit,
   });
   console.log(data);
+  const submitBooking = (payload) => () => {
+    return axios.post(`/booking-page`, payload, {
+      headers: { contentType: 'multipart/form-data' },
+    });
+  };
+  const _Submit = (nextStep) => {
+    const { dataBooking } = state;
+    console.log(data);
+    // const { checkout } = this.props;
+
+    const payload = new FormData();
+    payload.append('fullName', dataBooking.fullName);
+    payload.append('email', dataBooking.email);
+    payload.append('phoneNumber', dataBooking.phone);
+    payload.append('idItem', dataBooking._id);
+    payload.append('accountHolder', dataBooking.bankHolder);
+    payload.append('bankFrom', dataBooking.bankName);
+    // payload.append('image', dataBooking.proofPayment[0].name);
+    // payload.append("bankId", dataBooking.bankId);
+
+    submitBooking(payload);
+  };
   const [checkout, setCheckout] = useState({ duration: '' });
 
   const onChange = (e) => {
@@ -43,7 +72,7 @@ const Checkout = ({ dataBooking }) => {
         <BookingInformation
           data={data}
           checkout={checkout}
-          detailPage={detailPage}
+          detailPage={data}
           onChange={onChange}
         />
       ),
@@ -120,7 +149,9 @@ const Checkout = ({ dataBooking }) => {
                     <button
                       className='btn text-light rounded btn-lg btn-primary'
                       type='button'
-                      onClick={nextStep}
+                      onClick={() => {
+                        _Submit(nextStep);
+                      }}
                     >
                       Continue to Book
                     </button>

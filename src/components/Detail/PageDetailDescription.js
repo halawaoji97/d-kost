@@ -11,21 +11,16 @@ const PageDetailDescription = ({ data }) => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [dataBooking, setDataBooking] = useState({});
-  console.log(data.featureId);
+  // const [dataBooking, setDataBooking] = useState({});
   // const des = useSelector((state) => state.data);
   // if (des === 0) return null;
   // console.log(des);
 
-  const startBooking = (e, data) => {
+  const startBooking = (e) => {
     e.preventDefault();
     dispatch(checkoutBooking());
-    setDataBooking(data);
-    navigate('/checkout');
+    navigate('/checkout', { state: { dataBooking: data } });
   };
-
-  console.log(dataBooking);
-  console.log(data);
 
   if (!data.featureId) return 'no data';
 
@@ -87,8 +82,8 @@ const PageDetailDescription = ({ data }) => {
               onClick={startBooking}
               className='btn btn-primary rounded btn-lg'
               // checkout={da}
-              setDataBooking={data}
-              dataBooking={dataBooking}
+              // setDataBooking={data}
+              // dataBooking={dataBooking}
             >
               Book Now
             </button>

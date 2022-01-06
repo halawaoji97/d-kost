@@ -13,21 +13,21 @@ const BookingInformation = (props) => {
             <figure className='figure-img img-fluid rounded'>
               <img
                 className='rounded img-fluid'
-                src={detailPage.imageUrls[0].url}
-                alt={detailPage.location}
+                src={data.imageUrls}
+                alt={data.title}
               />
             </figure>
             <div className='row p-3 align-items-center d-flex justify-content-around'>
               <div className='col'>
-                <h5>Kost {detailPage.location}</h5>
+                <h5>Kost {data.title}</h5>
                 <span className='text-secondary'>
-                  {detailPage.location}, {detailPage.city}
+                  {data.price}, {data.city}
                 </span>
               </div>
               <div className='col d-sm-none d-xs-none d-md-block'></div>
               <div className='col'>
                 <p className='text-secondary'>
-                  Rp. {`${detailPage.price} / ${detailPage.unit} `}
+                  Rp. {`${data.price} / ${data.unit} `}
                 </p>
               </div>
             </div>
