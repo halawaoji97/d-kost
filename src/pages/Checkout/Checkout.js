@@ -39,6 +39,7 @@ const Checkout = () => {
       headers: { contentType: 'multipart/form-data' },
     });
   };
+
   const _Submit = (nextStep) => {
     const { dataBooking } = state;
     console.log(data);
@@ -58,7 +59,7 @@ const Checkout = () => {
 
     submitBooking(payload);
   };
-  const [checkout, setCheckout] = useState({ duration: '' });
+  const [checkout, setCheckout] = useState({ staying_start_date: '' });
 
   const onChange = (e) => {
     const { name, value } = e.target;

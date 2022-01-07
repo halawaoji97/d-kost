@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { checkoutBooking } from '../../store/actions/checkout';
 import { useNavigate } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 
 const PageDetailDescription = ({ data }) => {
@@ -19,7 +20,9 @@ const PageDetailDescription = ({ data }) => {
   const startBooking = (e) => {
     e.preventDefault();
     dispatch(checkoutBooking());
-    navigate('/checkout', { state: { dataBooking: data } });
+    navigate('/checkout', {
+      state: { dataBooking: data },
+    });
   };
 
   const total_rooms = data.empty_room + data.filled_room;

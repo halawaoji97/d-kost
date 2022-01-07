@@ -5,11 +5,8 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 const BookingInformation = (props) => {
-  const { data, detailPage, checkout } = props;
-  console.log(data);
-  const [startDate, setStartDate] = useState(new Date());
+  const { data } = props;
 
-  console.log(startDate);
   return (
     <div className='container booking-information mt-5'>
       <div className='row align-items-center justify-content-around'>
@@ -67,14 +64,21 @@ const BookingInformation = (props) => {
           />
 
           <label htmlFor='staying_start_date'>Date</label>
-          <DatePicker
+          {/* <DatePicker
             dateFormat='MMMM d, yyyy'
             selected={startDate}
             id='staying_start_date'
             name='staying_start_date'
             value={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={datePickerChange}
             className='date-picker'
+          /> */}
+          <InputText
+            id='staying_start_date'
+            name='staying_start_date'
+            value={data.staying_start_date}
+            type='text'
+            onChange={props.onChange}
           />
         </div>
       </div>
