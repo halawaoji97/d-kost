@@ -28,9 +28,8 @@ const DetailPage = () => {
     const detailsPage = async () => {
       try {
         const response = await axios.get(
-          `https://staycation-bwa-mern.herokuapp.com/api/v1/member/detail-page/${id}`
+          `${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${id}`
         );
-        console.log(response.data);
         setdetailItem(response.data);
         setCurrentId(response.data._id);
       } catch (error) {
@@ -50,7 +49,7 @@ const DetailPage = () => {
     <section className='detail-page'>
       <Navbar />
       <PageDetailTitle data={detailItem} />
-      {/* <FeaturedImage data={detailItem} /> */}
+      <FeaturedImage data={detailItem} />
       <PageDetailDescription data={detailItem} currentId={currentId} />
       <Footer />
     </section>

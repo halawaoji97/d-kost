@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import InputDate from '../Input/InputDate';
 import InputText from '../Input/InputText';
+import DatePicker from 'react-datepicker';
 
+import 'react-datepicker/dist/react-datepicker.css';
 const BookingInformation = (props) => {
   const { data, detailPage, checkout } = props;
   console.log(data);
+  const [startDate, setStartDate] = useState(new Date());
 
+  console.log(startDate);
   return (
     <div className='container booking-information mt-5'>
       <div className='row align-items-center justify-content-around'>
@@ -13,7 +18,7 @@ const BookingInformation = (props) => {
             <figure className='figure-img img-fluid rounded'>
               <img
                 className='rounded img-fluid'
-                src={data.imageUrls}
+                src={`${process.env.REACT_APP_HOST}/${data.imageId.imageUrl}`}
                 alt={data.title}
               />
             </figure>
@@ -34,11 +39,11 @@ const BookingInformation = (props) => {
           </div>
         </div>
         <div className='col-sm-10 mt-5 col-md-5'>
-          <label htmlFor='name'>Full Name</label>
+          <label htmlFor='full_name'>Full Name</label>
           <InputText
-            id='fullName'
-            name='fullName'
-            value={data.fullName}
+            id='full_name'
+            name='full_name'
+            value={data.full_name}
             type='text'
             onChange={props.onChange}
           />
@@ -59,6 +64,17 @@ const BookingInformation = (props) => {
             value={data.phone}
             type='tel'
             onChange={props.onChange}
+          />
+
+          <label htmlFor='staying_start_date'>Date</label>
+          <DatePicker
+            dateFormat='MMMM d, yyyy'
+            selected={startDate}
+            id='staying_start_date'
+            name='staying_start_date'
+            value={startDate}
+            onChange={(date) => setStartDate(date)}
+            className='date-picker'
           />
         </div>
       </div>

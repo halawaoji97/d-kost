@@ -19,17 +19,19 @@ const Checkout = () => {
   const { dataBooking } = state;
   console.log(dataBooking);
   const [data, setData] = useState({
-    fullName: '',
+    full_name: '',
     email: '',
     phone: '',
-    proofPayment: '',
-    bankName: '',
-    bankHolder: '',
+    proof_payment: '',
+    bank_name: '',
+    bank_holder: '',
     title: dataBooking.title,
     price: dataBooking.price,
     city: dataBooking.city,
     imageId: dataBooking.imageId[0],
     unit: dataBooking.unit,
+    booking_start_date: new Date(),
+    staying_start_date: '',
   });
   console.log(data);
   const submitBooking = (payload) => () => {
@@ -43,13 +45,15 @@ const Checkout = () => {
     // const { checkout } = this.props;
 
     const payload = new FormData();
-    payload.append('fullName', dataBooking.fullName);
+    payload.append('full_name', dataBooking.full_name);
     payload.append('email', dataBooking.email);
-    payload.append('phoneNumber', dataBooking.phone);
+    payload.append('booking_start_date', dataBooking.booking_start_date);
+    payload.append('staying_start_date', dataBooking.staying_start_date.value);
+    payload.append('phone_number', dataBooking.phone);
     payload.append('idItem', dataBooking._id);
-    payload.append('accountHolder', dataBooking.bankHolder);
-    payload.append('bankFrom', dataBooking.bankName);
-    // payload.append('image', dataBooking.proofPayment[0].name);
+    payload.append('account_holder', dataBooking.bank_holder);
+    payload.append('bank_from', dataBooking.bank_name);
+    payload.append('image', dataBooking.proofPayment[0].name);
     // payload.append("bankId", dataBooking.bankId);
 
     submitBooking(payload);
@@ -120,9 +124,10 @@ const Checkout = () => {
                 >
                   Cancel
                 </Link>
-                {data.fullName !== '' &&
+                {data.full_name !== '' &&
                   data.email !== '' &&
-                  data.phone !== '' && (
+                  data.phone !== '' &&
+                  data.staying_start_date !== '' && (
                     <button
                       className='btn text-light rounded btn-lg btn-primary'
                       type='button'
@@ -143,9 +148,9 @@ const Checkout = () => {
                 >
                   Back
                 </button>
-                {data.proofPayment !== '' &&
-                  data.bankName !== '' &&
-                  data.bankHolder !== '' && (
+                {data.proof_payment !== '' &&
+                  data.bank_name !== '' &&
+                  data.bank_holder !== '' && (
                     <button
                       className='btn text-light rounded btn-lg btn-primary'
                       type='button'

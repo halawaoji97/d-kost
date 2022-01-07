@@ -14,7 +14,7 @@ const PageDetailDescription = ({ data }) => {
   // const [dataBooking, setDataBooking] = useState({});
   // const des = useSelector((state) => state.data);
   // if (des === 0) return null;
-  // console.log(des);
+  console.log(data);
 
   const startBooking = (e) => {
     e.preventDefault();
@@ -22,30 +22,30 @@ const PageDetailDescription = ({ data }) => {
     navigate('/checkout', { state: { dataBooking: data } });
   };
 
-  if (!data.featureId) return 'no data';
+  const total_rooms = data.empty_room + data.filled_room;
+  if (!data.facilityId) return 'no data';
 
   return (
     <section className='container page-detail-description my-5'>
       <div className='row justify-content-between'>
         <div className='col-sm-10 p-4 col-md-6 description rounded bg-light'>
           <h4 className='my-4'>About the place</h4>
-          {/* {parse(data.description)} */}
+          {parse(data.description)}
+          <p>full address : {data.full_address}</p>
         </div>
         <div className='col-sm-10 p-4 bg-light col-md-5 rounded'>
           <h4 className='my-4'>Facility</h4>
           <div className='facilities d-flex justify-content-around '>
-            {data.featureId.map((feature, index) => {
+            {data.facilityId.map((facility, index) => {
               return (
                 <div
-                  key={`feature-${index}`}
+                  key={`facility-${index}`}
                   className='d-flex align-items-center'
                   style={{ marginBottom: 20 }}
                 >
-                  <span class='material-icons-outlined'>
-                    {feature.imageUrl}
-                  </span>{' '}
+                  <span class='material-icons-outlined'>{facility.icon}</span>
                   <span className='ms-2 text-gray-500 font-weight-light'>
-                    {feature.name}
+                    {facility.name}
                   </span>
                 </div>
               );
@@ -55,14 +55,13 @@ const PageDetailDescription = ({ data }) => {
             <div className='row justify-content-between'>
               <div className='col'>
                 <button type='button' class='btn text-light btn-info'>
-                  Total room{' '}
-                  <span class='badge bg-dark'>{data.totalRooms}</span>
+                  Total room <span class='badge bg-dark'>{total_rooms}</span>
                 </button>
               </div>
               <div className='col'>
                 <button type='button' class='btn text-light btn-info'>
                   Available room{' '}
-                  <span class='badge bg-dark'>{data.availableRooms}</span>
+                  <span class='badge bg-dark'>{data.empty_room}</span>
                 </button>
               </div>
               <div className='col mt-3'>

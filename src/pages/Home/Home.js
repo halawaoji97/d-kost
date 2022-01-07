@@ -22,7 +22,7 @@ const Home = () => {
     const fetchLandingPage = async () => {
       try {
         const response = await axios.get(
-          'https://staycation-bwa-mern.herokuapp.com/api/v1/member/landing-page'
+          `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`
         );
         console.log(response.data);
 
@@ -44,7 +44,7 @@ const Home = () => {
         refMostItemsPopular={refMostItemsPopular}
         currentId={currentId}
         setCurrentId={setCurrentId}
-        data={dataLandingPage.mostPicked}
+        data={dataLandingPage.mostPopular}
       />
       <Footer />
     </div>
