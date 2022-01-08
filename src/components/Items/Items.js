@@ -3,11 +3,7 @@ import { useSelector } from 'react-redux';
 import Item from './Item/Item';
 
 const Items = ({ setCurrentId, refMostItemsPopular, data }) => {
-  // const { data, refMostItemsPopular } = props;
-  console.log(data);
-  // const items = useSelector((state) => state.items.mostPicked);
   if (!data) return 'no data';
-  // console.log(items);
   return (
     <section className='items my-5 py-5' ref={refMostItemsPopular}>
       <div className='container my-3'>

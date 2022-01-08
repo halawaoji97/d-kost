@@ -8,33 +8,22 @@ import Items from '../../components/Items/Items';
 import Navbar from '../../components/Navbar/Navbar';
 import landingPage from '../../json/landingPage.json';
 import { getItems } from '../../store/actions/items';
+import { getAllData } from '../../store/actions/page';
 
 const Home = () => {
   const refMostItemsPopular = useRef();
   const [currentId, setCurrentId] = useState(null);
-  const [dataLandingPage, setdataLandingPage] = useState([]);
-  // const dispatch = useDispatch();
-  // const items = useSelector((state) => state.items);
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.page);
+  console.log(items);
 
   useEffect(() => {
     document.title = 'Home';
     window.scrollTo(0, 0);
-    const fetchLandingPage = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`
-        );
-        console.log(response.data);
-
-        setdataLandingPage(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchLandingPage();
+    dispatch(getAllData());
   }, []);
 
-  if (!dataLandingPage) return 'no post';
+  if (!items) return 'no post';
   return (
     <div>
       <Navbar />
@@ -44,7 +33,7 @@ const Home = () => {
         refMostItemsPopular={refMostItemsPopular}
         currentId={currentId}
         setCurrentId={setCurrentId}
-        data={dataLandingPage.mostPopular}
+        data={items.mostPopular}
       />
       <Footer />
     </div>

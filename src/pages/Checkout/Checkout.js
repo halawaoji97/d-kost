@@ -40,14 +40,17 @@ const Checkout = (props) => {
   //     headers: { contentType: 'multipart/form-data' },
   //   });
   // };
+  useEffect(() => {
+    setData(dataBooking);
+  }, []);
+  // console.log(...dataBooking);
 
   const _Submit = (nextStep) => {
     const { dataBooking } = state;
     console.log(data);
-    const { checkout } = props;
 
     const payload = new FormData();
-    payload.append('full_name', checkout.full_name);
+    payload.append('full_name', dataBooking.full_name);
     payload.append('email', dataBooking.email);
     payload.append('booking_start_date', dataBooking.booking_start_date);
     payload.append('staying_start_date', dataBooking.staying_start_date);
@@ -68,10 +71,6 @@ const Checkout = (props) => {
       })
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    _Submit();
-  }, []);
 
   const onChange = (e) => {
     const { name, value } = e.target;
