@@ -12,23 +12,39 @@ import { getDetailItems, getItems } from '../../store/actions/page';
 import { fetchData, fetchDetailData } from '../../api';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { fetchPage } from '../../store/actions/page';
 
-const DetailPage = () => {
+const DetailPage = (props) => {
   const [currentId, setCurrentId] = useState(null);
-  // const [detailItem, setdetailItem] = useState([]);
+  const [detailItem, setdetailItem] = useState([]);
   const dispatch = useDispatch();
-  // const { id } = useParams();
-  // console.log(id);
+  const { id } = useParams();
+  const items = useSelector((state) => state.page);
+  console.log(items);
+  // console.log(items);
+  const fetchDetails = (id) => {
+    dispatch(getDetailItems(id));
+  };
+  //   console.log(data);
+  //   dispatch(
+  //     fetchPage(
+  //       `https://garos.herokuapp.com/api/v1/member/detail-page/${id}`,
+  //       'detailPage'
+  //     )
+  //   )
+  //     .then((res) => console.log(res))
+  //     .then((res) => setdetailItem(res));
+  // };
+  // console.log(detailItem);
   // const detailItem = useSelector((state) =>
   //   state.page.mostPopular.find((item) => item._id === id)
   // );
-  // console.log(detailItem);
+  console.log(id);
+  useEffect(() => {
+    fetchDetails(id);
+  }, []);
   // if (!detailItem) return 'no data';
   // console.log(a);
-  const { id } = useParams();
-  useEffect(() => {
-    dispatch(getDetailItems(id));
-  }, [dispatch]);
 
   // useEffect(() => {
   //   document.title = 'Detail';
@@ -47,17 +63,14 @@ const DetailPage = () => {
   //   detailsPage();
   // }, []);
 
-  // useEffect(() => {
-  //   dispatch(checkoutBooking());
-  // }, []);
   // console.log(currentId);
   return (
     <section className='detail-page'>
       <Navbar />
-      {/* <PageDetailTitle data={detailItem} />
-      <FeaturedImage data={detailItem} />
-      <PageDetailDescription data={detailItem} currentId={currentId} />
-      <Footer /> */}
+      <PageDetailTitle data={items} />
+      <FeaturedImage data={items} />
+      <PageDetailDescription data={items} currentId={currentId} />
+      <Footer />
     </section>
   );
 };

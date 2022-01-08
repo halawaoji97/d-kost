@@ -7,7 +7,6 @@ import Hero from '../../components/Hero/Hero';
 import Items from '../../components/Items/Items';
 import Navbar from '../../components/Navbar/Navbar';
 import landingPage from '../../json/landingPage.json';
-import { getItems } from '../../store/actions/items';
 import { getAllData } from '../../store/actions/page';
 
 const Home = () => {
@@ -16,7 +15,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.page);
   console.log(items);
-
   useEffect(() => {
     document.title = 'Home';
     window.scrollTo(0, 0);

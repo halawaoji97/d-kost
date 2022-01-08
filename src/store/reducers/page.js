@@ -9,12 +9,11 @@ export default function (state = initialState, action) {
         ...state,
         ...action.payload,
       };
+
     case FETCH_DETAIL:
       return {
-        ...state,
-        itemId: action.payload,
+        ...action.payload,
       };
-
     default:
       return state;
   }
