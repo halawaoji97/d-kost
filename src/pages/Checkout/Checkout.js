@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Stepper, {
@@ -14,9 +14,10 @@ import axios from 'axios';
 import detailPage from '../../json/detailPage.json';
 import { checkoutBooking } from '../../store/actions/checkout';
 
-const Checkout = () => {
+const Checkout = (props) => {
   const { state } = useLocation();
   const { dataBooking } = state;
+  const [checkout, setCheckout] = useState({ staying_start_date: '' });
   console.log(dataBooking);
   const [data, setData] = useState({
     full_name: '',
@@ -34,32 +35,43 @@ const Checkout = () => {
     staying_start_date: '',
   });
   console.log(data);
-  const submitBooking = (payload) => () => {
-    return axios.post(`/booking-page`, payload, {
-      headers: { contentType: 'multipart/form-data' },
-    });
-  };
+  // const submitBooking = (payload) => () => {
+  //   return axios.post(`/booking-page`, payload, {
+  //     headers: { contentType: 'multipart/form-data' },
+  //   });
+  // };
 
   const _Submit = (nextStep) => {
     const { dataBooking } = state;
     console.log(data);
-    // const { checkout } = this.props;
+    const { checkout } = props;
 
     const payload = new FormData();
-    payload.append('full_name', dataBooking.full_name);
+    payload.append('full_name', checkout.full_name);
     payload.append('email', dataBooking.email);
     payload.append('booking_start_date', dataBooking.booking_start_date);
-    payload.append('staying_start_date', dataBooking.staying_start_date.value);
+    payload.append('staying_start_date', dataBooking.staying_start_date);
     payload.append('phone_number', dataBooking.phone);
     payload.append('idItem', dataBooking._id);
-    payload.append('account_holder', dataBooking.bank_holder);
+    payload.append('account_holder', dataBooking.account_holder);
     payload.append('bank_from', dataBooking.bank_name);
-    payload.append('image', dataBooking.proofPayment[0].name);
+    payload.append('image', dataBooking.proof_payment);
     // payload.append("bankId", dataBooking.bankId);
 
-    submitBooking(payload);
+    return axios
+      .post(`/booking-page`, payload, {
+        headers: { contentType: 'multipart/form-data' },
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
   };
-  const [checkout, setCheckout] = useState({ staying_start_date: '' });
+
+  useEffect(() => {
+    _Submit();
+  }, []);
 
   const onChange = (e) => {
     const { name, value } = e.target;

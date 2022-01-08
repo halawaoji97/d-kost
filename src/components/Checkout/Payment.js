@@ -42,29 +42,29 @@ const Payment = (props) => {
         </div>
 
         <div className='col-sm-10 col-md-5 px-5 py-5'>
-          <label htmlFor='proofPayment'>Upload Bukti Transfer</label>
+          <label htmlFor='proof_payment'>Upload Bukti Transfer</label>
           <InputFile
             accept='image/*'
-            id='proofPayment'
-            name='proofPayment'
-            value={data.proofPayment}
+            id='proof_payment'
+            name='proof_payment'
+            value={data.proof_payment}
             onChange={props.onChange}
           />
-          <label htmlFor='bankName'>Asal Bank</label>
+          <label htmlFor='bank_name'>Asal Bank</label>
           <InputText
-            id='bankName'
-            name='bankName'
+            id='bank_name'
+            name='bank_name'
             type='text'
-            value={data.bankName}
+            value={data.bank_name}
             onChange={props.onChange}
           />
 
-          <label htmlFor='bankHolder'>Nama Pengirim</label>
+          <label htmlFor='bank_holder'>Nama Pengirim</label>
           <InputText
-            id='bankHolder'
-            name='bankHolder'
+            id='bank_holder'
+            name='bank_holder'
             type='text'
-            value={data.bankHolder}
+            value={data.bank_holder}
             onChange={props.onChange}
           />
         </div>
