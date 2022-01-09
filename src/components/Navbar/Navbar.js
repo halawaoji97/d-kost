@@ -17,29 +17,29 @@ const Navbar = () => {
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
-          <span className='material-icons md-48'>menu</span>
+          <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse py-3' id='navbarToggler'>
-          <ul className='navbar-nav ms-auto mb-3 '>
+          <ul className='navbar-nav ms-auto mb-3'>
             <li className='nav-item'>
-              <a className='nav-link active' aria-current='page' href='#'>
+              <Link className='nav-link' aria-current='page' to='/'>
                 Home
-              </a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
+              <Link className='nav-link' to='/'>
                 Features
-              </a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
+              <Link className='nav-link' to='/'>
                 About
-              </a>
+              </Link>
             </li>
             <li className='nav-item'>
-              <a className='nav-link' href='#'>
+              <Link className='nav-link' to='/'>
                 Login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

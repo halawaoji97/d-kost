@@ -28,9 +28,57 @@ main {
     rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   .container {
     .navbar-toggler {
-      border: none;
-      :focus {
-        box-shadow: 0px 0px 2px 0.1rem;
+      outline: none;
+      padding: 0;
+      width: 37px;
+      height: 42px;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+
+      span {
+        display: block;
+        width: 44px;
+        height: 4px;
+        background-color: $primary;
+        margin: 7px 0;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        position: relative;
+        border-radius: 5px;
+        transition: all 0.3s;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: #272323;
+          top: -10px;
+          border-radius: 5px;
+          -webkit-transition: all 0.3s;
+          transition: all 0.3s;
+        }
+        &::after {
+          top: 10px;
+        }
+      }
+    }
+    .navbar-toggler[aria-expanded='true'] {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+
+      span {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+
+        &::before,
+        &::after {
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+          top: 0;
+        }
       }
     }
     .collapse {
@@ -39,8 +87,15 @@ main {
         .nav-item {
           .nav-link {
             color: $primary;
-            font-weight: 400;
-            font-size: 18px;
+            font-weight: 500;
+            font-size: 16px;
+
+            &.active {
+              color: $info;
+            }
+            &:hover {
+              color: $info;
+            }
           }
         }
       }
