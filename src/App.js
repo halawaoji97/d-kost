@@ -3,7 +3,6 @@ import React from 'react';
 import Home from './pages/Home/Home';
 import DetailPage from './pages/DetailPage/DetailPage';
 import Checkout from './pages/Checkout/Checkout';
-import CheckoutExample from './pages/Checkout';
 
 const App = () => {
   return (
@@ -13,7 +12,6 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/detail/:id' element={<DetailPage />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/checkoutExample' element={<CheckoutExample />} />
         </Routes>
       </div>
     </Router>

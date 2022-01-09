@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Stepper, {
   Numbering,
   Meta,
@@ -10,68 +10,39 @@ import Stepper, {
 import BookingInformation from '../../components/Checkout/BookingInformation';
 import Payment from '../../components/Checkout/Payment';
 import Completed from '../../components/Checkout/Completed';
-import axios from 'axios';
 import detailPage from '../../json/detailPage.json';
-import { checkoutBooking } from '../../store/actions/checkout';
+import { useParams } from 'react-router-dom';
+import { checkoutBooking } from '../../store/actions/page';
 
 const Checkout = (props) => {
   const { state } = useLocation();
-  const { dataBooking } = state;
-  const [checkout, setCheckout] = useState({ staying_start_date: '' });
-  console.log(dataBooking);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     full_name: '',
     email: '',
-    phone: '',
-    proof_payment: '',
-    bank_name: '',
-    bank_holder: '',
-    title: dataBooking.title,
-    price: dataBooking.price,
-    city: dataBooking.city,
-    imageId: dataBooking.imageId[0],
-    unit: dataBooking.unit,
+    phone_number: '',
+    bank_from: '',
+    account_holder: '',
     booking_start_date: new Date(),
     staying_start_date: '',
+    idItem: '',
   });
-  console.log(data);
-  // const submitBooking = (payload) => () => {
-  //   return axios.post(`/booking-page`, payload, {
-  //     headers: { contentType: 'multipart/form-data' },
-  //   });
-  // };
+
   useEffect(() => {
-    setData(dataBooking);
-  }, []);
-  // console.log(...dataBooking);
-
-  const _Submit = (nextStep) => {
     const { dataBooking } = state;
-    console.log(data);
+    if (data)
+      setData({
+        ...data,
+        idItem: dataBooking._id,
+      });
+  }, []);
 
-    const payload = new FormData();
-    payload.append('full_name', dataBooking.full_name);
-    payload.append('email', dataBooking.email);
-    payload.append('booking_start_date', dataBooking.booking_start_date);
-    payload.append('staying_start_date', dataBooking.staying_start_date);
-    payload.append('phone_number', dataBooking.phone);
-    payload.append('idItem', dataBooking._id);
-    payload.append('account_holder', dataBooking.account_holder);
-    payload.append('bank_from', dataBooking.bank_name);
-    payload.append('image', dataBooking.proof_payment);
-    // payload.append("bankId", dataBooking.bankId);
-
-    return axios
-      .post(`/booking-page`, payload, {
-        headers: { contentType: 'multipart/form-data' },
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
+  const handleBooking = (nextStep) => {
+    dispatch(checkoutBooking({ ...data }));
+    nextStep();
   };
-
   const onChange = (e) => {
     const { name, value } = e.target;
     setData({
@@ -85,12 +56,7 @@ const Checkout = (props) => {
       title: 'Booking Information',
       description: 'Please fill up the blank fields below',
       content: (
-        <BookingInformation
-          data={data}
-          checkout={checkout}
-          detailPage={data}
-          onChange={onChange}
-        />
+        <BookingInformation data={data} detailPage={data} onChange={onChange} />
       ),
     },
 
@@ -98,12 +64,7 @@ const Checkout = (props) => {
       title: 'Payment',
       description: 'Kindly follow the instructions below',
       content: (
-        <Payment
-          data={data}
-          detailPage={detailPage}
-          checkout={checkout}
-          onChange={onChange}
-        />
+        <Payment data={data} detailPage={detailPage} onChange={onChange} />
       ),
     },
 
@@ -132,13 +93,13 @@ const Checkout = (props) => {
               <Controller>
                 <Link
                   className='btn rounded text-light btn-lg btn-secondary'
-                  to={`/detail/${checkout._id}`}
+                  to={`/detail/${id}`}
                 >
                   Cancel
                 </Link>
                 {data.full_name !== '' &&
                   data.email !== '' &&
-                  data.phone !== '' &&
+                  data.phone_number !== '' &&
                   data.staying_start_date !== '' && (
                     <button
                       className='btn text-light rounded btn-lg btn-primary'
@@ -160,19 +121,17 @@ const Checkout = (props) => {
                 >
                   Back
                 </button>
-                {data.proof_payment !== '' &&
-                  data.bank_name !== '' &&
-                  data.bank_holder !== '' && (
-                    <button
-                      className='btn text-light rounded btn-lg btn-primary'
-                      type='button'
-                      onClick={() => {
-                        _Submit(nextStep);
-                      }}
-                    >
-                      Continue to Book
-                    </button>
-                  )}
+                {data.bank_name !== '' && data.bank_holder !== '' && (
+                  <button
+                    className='btn text-light rounded btn-lg btn-primary'
+                    type='button'
+                    onClick={() => {
+                      handleBooking(nextStep);
+                    }}
+                  >
+                    Continue to Book
+                  </button>
+                )}
               </Controller>
             )}
 
@@ -193,8 +152,4 @@ const Checkout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  checkout: state.checkout,
-});
-
-export default connect(mapStateToProps)(Checkout);
+export default Checkout;

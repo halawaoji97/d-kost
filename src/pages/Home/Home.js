@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Features from '../../components/Features/Features';
@@ -13,15 +12,15 @@ const Home = () => {
   const refMostItemsPopular = useRef();
   const [currentId, setCurrentId] = useState(null);
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.page);
-  console.log(items);
+  const page = useSelector((state) => state.page);
+
   useEffect(() => {
     document.title = 'Home';
     window.scrollTo(0, 0);
     dispatch(getAllData());
-  }, []);
+  }, [dispatch]);
 
-  if (!items) return 'no post';
+  if (!page) return 'no post';
   return (
     <div>
       <Navbar />
@@ -31,7 +30,7 @@ const Home = () => {
         refMostItemsPopular={refMostItemsPopular}
         currentId={currentId}
         setCurrentId={setCurrentId}
-        data={items.mostPopular}
+        data={page.mostPopular}
       />
       <Footer />
     </div>

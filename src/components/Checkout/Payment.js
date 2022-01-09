@@ -1,11 +1,10 @@
 import React from 'react';
 import logoBca from '../../assets/images/logo-bca.jpg';
 import logoMandiri from '../../assets/images/logo-mandiri.jpg';
-import InputFile from '../../components/Input/InputFile';
 import InputText from '../Input/InputText';
 
 const Payment = (props) => {
-  const { data, detailPage, checkout } = props;
+  const { data, detailPage } = props;
   return (
     <div className='container' style={{ marginBottom: 30 }}>
       <div className='row justify-content-center align-items-center'>
@@ -42,27 +41,27 @@ const Payment = (props) => {
         </div>
 
         <div className='col-sm-10 col-md-5 px-5 py-5'>
-          <label htmlFor='proof_payment'>Upload Bukti Transfer</label>
+          {/* <label htmlFor='proof_payment'>Upload Bukti Transfer</label>
           <InputFile
             accept='image/*'
             id='proof_payment'
             name='proof_payment'
             value={data.proof_payment}
             onChange={props.onChange}
-          />
-          <label htmlFor='bank_name'>Asal Bank</label>
+          /> */}
+          <label htmlFor='bank_from'>Asal Bank</label>
           <InputText
-            id='bank_name'
-            name='bank_name'
+            id='bank_from'
+            name='bank_from'
             type='text'
-            value={data.bank_name}
+            value={data.bank_from}
             onChange={props.onChange}
           />
 
-          <label htmlFor='bank_holder'>Nama Pengirim</label>
+          <label htmlFor='account_holder'>Nama Pengirim</label>
           <InputText
-            id='bank_holder'
-            name='bank_holder'
+            id='account_holder'
+            name='account_holder'
             type='text'
             value={data.bank_holder}
             onChange={props.onChange}

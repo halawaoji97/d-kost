@@ -13,11 +13,11 @@ const BookingInformation = (props) => {
         <div className='col-sm-10 col-md-5 mt-5 border-right'>
           <div className='card'>
             <figure className='figure-img img-fluid rounded'>
-              <img
+              {/* <img
                 className='rounded img-fluid'
                 src={`${process.env.REACT_APP_HOST}/${data.imageId.imageUrl}`}
                 alt={data.title}
-              />
+              /> */}
             </figure>
             <div className='row p-3 align-items-center d-flex justify-content-around'>
               <div className='col'>
@@ -54,11 +54,11 @@ const BookingInformation = (props) => {
             onChange={props.onChange}
           />
 
-          <label htmlFor='phone'>Phone Number</label>
+          <label htmlFor='phone_number'>Phone Number</label>
           <InputText
-            id='phone'
-            name='phone'
-            value={data.phone}
+            id='phone_number'
+            name='phone_number'
+            value={data.phone_number}
             type='tel'
             onChange={props.onChange}
           />

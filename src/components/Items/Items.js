@@ -1,8 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import Item from './Item/Item';
 
-const Items = ({ setCurrentId, refMostItemsPopular, data }) => {
+const Items = ({ refMostItemsPopular, data }) => {
   if (!data) return 'no data';
   return (
     <section className='items my-5 py-5' ref={refMostItemsPopular}>
