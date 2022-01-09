@@ -20,7 +20,6 @@ const Home = () => {
     dispatch(getAllData());
   }, [dispatch]);
 
-  if (!page) return 'no post';
   return (
     <div>
       <Navbar />

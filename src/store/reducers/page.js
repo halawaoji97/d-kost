@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
         ...action.payload,
       };
     case CHECKOUT_BOOKING:
-      return [...state, action.payload];
+      return action.payload;
     default:
       return state;
   }

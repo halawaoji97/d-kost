@@ -93,7 +93,7 @@ const Checkout = (props) => {
               <Controller>
                 <Link
                   className='btn rounded text-light btn-lg btn-secondary'
-                  to={`/detail/${id}`}
+                  to={`/detail/${data.idItem}`}
                 >
                   Cancel
                 </Link>

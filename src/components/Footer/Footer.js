@@ -1,25 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className='py-5'>
+    <footer className='py-5 mt-auto'>
       <div className='container'>
         <div className='row'>
           <div className='col footer-brand'>
             <h1 className='brand'>
-              <a href='#'>AsRog</a>
+              <Link to='/'>AsRog</Link>
             </h1>
           </div>
           <div className='col-sm-10 col-md-4'>
             <ul className='d-flex  footer-list justify-content-between'>
               <li>
-                <a href='#'>Developer</a>
+                <Link to='/'>Developer</Link>
               </li>
               <li>
-                <a href='#'>Privacy policy</a>
+                <Link to='/'>Privacy policy</Link>
               </li>
               <li>
-                <a href='#'>Terms & condition</a>
+                <Link to='/'>Terms & condition</Link>
               </li>
             </ul>
           </div>

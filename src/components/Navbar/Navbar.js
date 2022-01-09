@@ -17,7 +17,7 @@ const Navbar = () => {
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
-          <span className='navbar-toggler-icon'></span>
+          <span class='material-icons-outlined'>menu</span>
         </button>
         <div className='collapse navbar-collapse py-3' id='navbarToggler'>
           <ul className='navbar-nav ms-auto mb-3'>

@@ -13,7 +13,7 @@ const DetailPage = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const items = useSelector((state) => state.page);
-  console.log(items);
+
   const fetchDetails = (id) => {
     dispatch(getDetailItems(id));
   };
