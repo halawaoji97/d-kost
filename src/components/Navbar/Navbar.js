@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import BrandImage from '../../assets/images/LOGO.png';
 const Navbar = () => {
   return (
     <nav className='navbar fixed-top navbar-expand-lg bg-light'>
       <div className='container'>
         <Link className='navbar-brand' to='/'>
-          Asrog
+          <img src={BrandImage} alt='' />
         </Link>
         <button
           className='navbar-toggler'
