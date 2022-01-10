@@ -1,8 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import BrandImage from '../../assets/images/LOGO.png';
 
 const Navbar = () => {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const logout = () => {
+    dispatch({ type: 'LOGOUT' });
+    navigate('/signin');
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [location]);
+
   return (
     <nav className='navbar fixed-top navbar-expand-lg bg-light'>
       <div className='container'>
@@ -37,6 +56,11 @@ const Navbar = () => {
                 About
               </Link>
             </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/'>
+                {user?.result.name}
+              </Link>
+            </li>
             <li
               className='nav-item text-center'
               style={{
@@ -48,7 +72,7 @@ const Navbar = () => {
             >
               <Link
                 className='nav-link btn-info link-signin'
-                to='/signin'
+                to='/auth'
                 style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
               >
                 Signin
@@ -63,13 +87,14 @@ const Navbar = () => {
                 color: '#d3ecff',
               }}
             >
-              <Link
+              <button
+                type='button'
+                onClick={logout}
                 className='nav-link btn-info link-signin'
-                to='/signup'
                 style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
               >
-                Signin
-              </Link>
+                Logout
+              </button>
             </li>
           </ul>
         </div>

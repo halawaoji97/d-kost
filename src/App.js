@@ -3,8 +3,6 @@ import React from 'react';
 import Home from './pages/Home/Home';
 import DetailPage from './pages/DetailPage/DetailPage';
 import Checkout from './pages/Checkout/Checkout';
-import Signin from './components/Auth/Signin';
-import Signup from './components/Auth/Signup';
 import Auth from './components/Auth/Auth';
 
 const App = () => {
@@ -15,8 +13,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/detail/:id' element={<DetailPage />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/signin' element={<Auth />} />
-          <Route path='/signup' element={<Signup />} />
+          <Route path='/auth' element={<Auth />} />
         </Routes>
       </div>
     </Router>

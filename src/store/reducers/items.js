@@ -11,7 +11,3 @@ export default (items = INITIAL_STATE, action) => {
       return items;
   }
 };
-
-// return posts.map((post) =>
-//         post._id === action.payload._id ? action.payload : post
-//       );
