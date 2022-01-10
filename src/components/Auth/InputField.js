@@ -13,6 +13,7 @@ const InputField = (props) => {
         className={className}
         id={label}
         placeholder={placeholder}
+        onChange={handleChange}
       />
     </div>
   );

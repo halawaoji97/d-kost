@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
-    navigate('/signin');
+    navigate('/auth');
     setUser(null);
   };
 
@@ -56,46 +56,52 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            <li className='nav-item'>
-              <Link className='nav-link' to='/'>
-                {user?.result.name}
-              </Link>
-            </li>
-            <li
-              className='nav-item text-center'
-              style={{
-                display: 'block',
-                width: 120,
-                borderRadius: 12,
-                color: '#d3ecff',
-              }}
-            >
-              <Link
-                className='nav-link btn-info link-signin'
-                to='/auth'
-                style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
+            {user && (
+              <li className='nav-item'>
+                <Link className='nav-link' to='/'>
+                  {user?.result.name}
+                </Link>
+              </li>
+            )}
+            {!user && (
+              <li
+                className='nav-item text-center'
+                style={{
+                  display: 'block',
+                  width: 120,
+                  borderRadius: 12,
+                  color: '#d3ecff',
+                }}
               >
-                Signin
-              </Link>
-            </li>
-            <li
-              className='nav-item text-center'
-              style={{
-                display: 'block',
-                width: 120,
-                borderRadius: 12,
-                color: '#d3ecff',
-              }}
-            >
-              <button
-                type='button'
-                onClick={logout}
-                className='nav-link btn-info link-signin'
-                style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
+                <Link
+                  className='nav-link btn-info link-signin'
+                  to='/auth'
+                  style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
+                >
+                  Signin
+                </Link>
+              </li>
+            )}
+            {user && (
+              <li
+                className='nav-item text-center'
+                style={{
+                  display: 'block',
+                  width: 120,
+                  borderRadius: 12,
+                  color: '#d3ecff',
+                }}
               >
-                Logout
-              </button>
-            </li>
+                <button
+                  type='button'
+                  onClick={logout}
+                  className='nav-link btn-info link-signin'
+                  style={{ borderRadius: 12, color: '#d3ecff', padding: '7' }}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
