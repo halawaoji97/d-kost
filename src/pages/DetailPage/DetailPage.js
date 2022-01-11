@@ -18,6 +18,8 @@ const DetailPage = (props) => {
     dispatch(getDetailItems(id));
   };
   useEffect(() => {
+    document.title = 'Detail';
+    window.scrollTo(0, 0);
     fetchDetails(id);
   }, []);
 

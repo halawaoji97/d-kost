@@ -31,6 +31,8 @@ const Checkout = (props) => {
   });
 
   useEffect(() => {
+    document.title = 'Checkout';
+    window.scrollTo(0, 0);
     const { dataBooking } = state;
     if (data)
       setData({
